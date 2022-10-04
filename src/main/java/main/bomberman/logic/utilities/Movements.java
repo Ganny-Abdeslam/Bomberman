@@ -29,15 +29,26 @@ public class Movements {
             unit.getCoordinate().getRow()+row>=0 &&
             unit.getCoordinate().getRow()+row<=9) {
 
-            unit.getBox().setUnit(null);
-            unit.getCoordinate().setRow(unit.getCoordinate().getRow() + row);
-            unit.getCoordinate().setCol(unit.getCoordinate().getCol() + column);
+            //Asegurar que el campo a moverse no posea una unidad, bomba o bloque
+            if(unit.getGrid().getBoxes()[unit.getCoordinate().getRow() + row]
+                [unit.getCoordinate().getCol() + column].getUnit()==null &&
 
-            unit.setBox(unit.getGrid().getBoxes()
-                    [unit.getCoordinate().getRow()][unit.getCoordinate().getCol()]);
+                unit.getGrid().getBoxes()[unit.getCoordinate().getRow() + row]
+                [unit.getCoordinate().getCol() + column].getBomb()==null &&
 
-            unit.getBox().setUnit((Player) unit);
-            System.out.println(unit.getGrid());
+                unit.getGrid().getBoxes()[unit.getCoordinate().getRow() + row]
+                [unit.getCoordinate().getCol() + column].getBlock()==null) {
+
+                unit.getBox().setUnit(null);
+                unit.getCoordinate().setRow(unit.getCoordinate().getRow() + row);
+                unit.getCoordinate().setCol(unit.getCoordinate().getCol() + column);
+
+                unit.setBox(unit.getGrid().getBoxes()
+                        [unit.getCoordinate().getRow()][unit.getCoordinate().getCol()]);
+
+                unit.getBox().setUnit((Player) unit);
+                System.out.println(unit.getGrid());
+            }
         }
     }
 }

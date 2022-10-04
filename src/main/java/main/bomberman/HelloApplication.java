@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.bomberman.logic.field.Grid;
+import main.bomberman.logic.models.Enemy;
 import main.bomberman.logic.models.Player;
 import main.bomberman.logic.models.Unit;
 import main.bomberman.logic.utilities.Movements;
@@ -28,6 +29,9 @@ public class HelloApplication extends Application {
         grid.start();
 
         Unit player = new Player(grid.getBoxes()[0][0], grid);
+        Enemy enemy = new Enemy();
+
+        enemy.movement();
 
         grid.getBoxes()[0][0].setUnit((Player) player);
         System.out.println(grid);
