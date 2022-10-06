@@ -29,7 +29,7 @@ public class HelloApplication extends Application {
         grid.start();
 
         Unit player = new Player(grid.getBoxes()[0][0], grid);
-        Enemy enemy = new Enemy();
+        Enemy enemy = new Enemy(grid.getBoxes()[1][1], grid);
 
         enemy.movement();
 
