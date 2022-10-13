@@ -1,9 +1,6 @@
 package main.bomberman.logic.field;
 
-import main.bomberman.logic.models.Block;
-import main.bomberman.logic.models.Bomb;
-import main.bomberman.logic.models.Player;
-import main.bomberman.logic.models.Unit;
+import main.bomberman.logic.models.*;
 import main.bomberman.logic.utilities.Coordinate;
 
 public class Box {
@@ -70,6 +67,9 @@ public class Box {
         this.unit = unit;
     }
 
+    public void setUnit(Enemy enemy) {this.unit = enemy;
+    }
+
     public void setBlock(Block block) {
         this.block = block;
     }
@@ -87,5 +87,6 @@ public class Box {
         }
         return "*";
     }
+
 
 }

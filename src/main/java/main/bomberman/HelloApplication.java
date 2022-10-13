@@ -29,11 +29,15 @@ public class HelloApplication extends Application {
         grid.start();
 
         Unit player = new Player(grid.getBoxes()[0][0], grid);
-        Enemy enemy = new Enemy(grid.getBoxes()[1][1], grid);
+        Unit enemy = new Enemy(grid.getBoxes()[5][10], grid);
+        Unit enemy01 = new Enemy(grid.getBoxes()[7][12], grid);
 
-        enemy.movement();
+        ((Enemy) enemy).movement();
+        ((Enemy) enemy01).movement();
 
         grid.getBoxes()[0][0].setUnit((Player) player);
+        grid.getBoxes()[5][10].setUnit((Enemy) enemy);
+        grid.getBoxes()[7][12].setUnit((Enemy) enemy01);
         System.out.println(grid);
 
         //Mover el personaje
