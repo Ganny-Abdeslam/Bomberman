@@ -18,4 +18,12 @@ public class Block implements  Source{
         }
         return "No es destruible";
     }
+
+    @Override
+    public String toString(){
+        if(BlockType.BRICK == this.blockType){
+            return "M";
+        }
+        return "L";
+    }
 }

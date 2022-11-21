@@ -13,8 +13,6 @@ public class Enemy extends Unit{
     private int valueTrajectory = 0;
     private Enemy enemy = this;
 
-    private Boolean life = true;
-
     public Enemy(){}
 
     public Enemy(Box box, Grid grid){
@@ -22,17 +20,14 @@ public class Enemy extends Unit{
         this.coordinate = box.getCoordinate();
     }
 
-    public void setLife(Boolean life) {
-        this.life = life;
-    }
-
     public void movement(){
         Task task = new Task() {
+
             @Override
             protected Object call() throws Exception {
                 do {
                     destination(0, "", 0, 0, 0);
-                    for (char mov: listMovements.toCharArray()) {
+                    for (char mov : listMovements.toCharArray()) {
                         move(enemy, mov);
                         Thread.sleep(5000);
                         System.out.println(box.getGrid());

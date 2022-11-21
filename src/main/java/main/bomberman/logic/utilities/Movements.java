@@ -70,6 +70,12 @@ public class Movements {
                 unit.getCoordinate().getRow()+row>=0 &&
                 unit.getCoordinate().getRow()+row<=9)) {return;}
 
+        if(!(unit.getGrid().getBoxes()[unit.getCoordinate().getRow() + row]
+                [unit.getCoordinate().getCol() + column].getExplosion()==null)) {
+            unit.setLife(false);
+            return;
+        }
+
         //Asegurar que el campo a moverse no posea una unidad, bomba o bloque
         if(!(unit.getGrid().getBoxes()[unit.getCoordinate().getRow() + row]
                 [unit.getCoordinate().getCol() + column].getUnit()==null &&

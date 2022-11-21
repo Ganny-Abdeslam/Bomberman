@@ -13,6 +13,7 @@ public class Box {
     private Bomb bomb;
     private Coordinate coordinate;
     private Grid grid;
+    private Explosion explosion;
 
     public Box(Coordinate coordinate){
         this.coordinate = coordinate;
@@ -34,6 +35,11 @@ public class Box {
     public Unit getUnit() {
         return unit;
     }
+
+    public Explosion getExplosion() {
+        return explosion;
+    }
+
 
     public Block getBlock() {
         return block;
@@ -63,6 +69,10 @@ public class Box {
         this.grid = grid;
     }
 
+    public void setExplosion(Explosion explosion) {
+        this.explosion = explosion;
+    }
+
     public void setUnit(Player unit) {
         this.unit = unit;
     }
@@ -84,6 +94,10 @@ public class Box {
             return this.unit.toString();
         }else if (this.bomb != null){
             return this.bomb.toString();
+        }else if (this.explosion != null){
+            return this.explosion.toString();
+        }else if (this.block != null) {
+            return this.block.toString();
         }
         return "*";
     }

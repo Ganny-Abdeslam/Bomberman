@@ -12,6 +12,8 @@ public class Unit implements Source{
 
     protected Grid grid;
 
+    protected Boolean life = true;
+
     public Unit(){
 
     }
@@ -36,6 +38,10 @@ public class Unit implements Source{
 
     public void setBox(Box box) {
         this.box = box;
+    }
+
+    public void setLife(Boolean life) {
+        this.life = life;
     }
 
     public void setGrid(Grid grid) {

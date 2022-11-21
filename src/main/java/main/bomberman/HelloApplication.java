@@ -5,9 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.bomberman.logic.field.Grid;
-import main.bomberman.logic.models.Enemy;
-import main.bomberman.logic.models.Player;
-import main.bomberman.logic.models.Unit;
+import main.bomberman.logic.models.*;
 import main.bomberman.logic.utilities.Movements;
 
 import java.io.IOException;
@@ -28,14 +26,23 @@ public class HelloApplication extends Application {
         Grid grid = new Grid();
         grid.start();
 
-        Unit player = new Player(grid.getBoxes()[0][0], grid);
+        Unit player = new Player(grid.getBoxes()[1][1], grid);
         Unit enemy = new Enemy(grid.getBoxes()[5][10], grid);
         Unit enemy01 = new Enemy(grid.getBoxes()[7][12], grid);
+
+        for (int i=0; i<20; i++){
+            grid.getBoxes()[0][i].setBlock(new Block(BlockType.METAL));
+            grid.getBoxes()[9][i].setBlock(new Block(BlockType.METAL));
+        }
+        for (int i=0; i<10; i++){
+            grid.getBoxes()[i][0].setBlock(new Block(BlockType.METAL));
+            grid.getBoxes()[i][19].setBlock(new Block(BlockType.METAL));
+        }
 
         ((Enemy) enemy).movement();
         ((Enemy) enemy01).movement();
 
-        grid.getBoxes()[0][0].setUnit((Player) player);
+        grid.getBoxes()[1][1].setUnit((Player) player);
         grid.getBoxes()[5][10].setUnit((Enemy) enemy);
         grid.getBoxes()[7][12].setUnit((Enemy) enemy01);
         System.out.println(grid);
